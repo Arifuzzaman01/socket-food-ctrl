@@ -23,9 +23,9 @@ const io = new Server(server, { cors: { origin: "*", methods: ["GET", "POST"] } 
 
 io.on("connection", (socket) => {
  console.log(`🔌 New Socket.io connected: ${socket.id}`);
-
+socket.emit("connected", { message: "Welcome to the order management system!" });
  // order handler
- console.log(generateOrderId());
+//  console.log(generateOrderId());
  orderHandler(io, socket);
 });
 

@@ -7,12 +7,8 @@ import { createBrowserRouter, RouterProvider } from "react-router";
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <div>Hello World</div>,
-  },
-  {
-    path: "/app",
     Component: App,
-  }
+  },
 ]);
 
 createRoot(document.getElementById("root")).render(

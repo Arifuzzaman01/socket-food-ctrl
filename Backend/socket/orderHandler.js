@@ -397,4 +397,15 @@ export const orderHandler = (io, socket) => {
       });
     }
   });
+
+  // disconnect handler
+  socket.on("disconnected", () => {
+    console.log(`🔌 Socket disconnected: ${socket.id}`);
+    if (socket.isAdmin) {
+      socket.to("admins").emit("adminDisconnected", {
+        adminId: socket.id,
+        message: "An admin has disconnected.",
+      });
+    }
+  });
 };
